@@ -136,4 +136,4 @@ node_modules/
 .DS_Store
 
 # 
-.terminal.js
+terminal.js
