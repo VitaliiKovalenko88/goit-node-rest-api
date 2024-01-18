@@ -65,7 +65,7 @@ export async function addContact(name, email, phone) {
     return newContact;
 
   } catch (error) {
-    log(error.message);
+    console.log(error.message);
 
   }
 }
