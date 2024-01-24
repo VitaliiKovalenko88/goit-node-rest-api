@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { promises as fs } from 'fs';
-import { getContactById, listContacts, removeContact } from "../services/contactsServices.js";
+import { addContact, getContactById, listContacts, removeContact } from "../services/contactsServices.js";
 
 
 export const getAllContacts = async (req, res) => {
@@ -20,6 +20,8 @@ export const deleteContact = async (req, res) => {
   res.status(200).json(deleteContact);
 };
 
-export const createContact = (req, res) => { };
+export const createContact = async (req, res) => {
+  const newContact = await addContact()
+};
 
 export const updateContact = (req, res) => { };
