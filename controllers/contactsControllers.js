@@ -1,11 +1,25 @@
-import contactsService from "../services/contactsServices.js";
+import { nanoid } from "nanoid";
+import { promises as fs } from 'fs';
+import { getContactById, listContacts, removeContact } from "../services/contactsServices.js";
 
-export const getAllContacts = (req, res) => {};
 
-export const getOneContact = (req, res) => {};
+export const getAllContacts = async (req, res) => {
+  const contacts = await listContacts();
+  res.status(200).json(contacts);
+};
 
-export const deleteContact = (req, res) => {};
+export const getOneContact = async (req, res) => {
+  const contactById = await getContactById(req.params.id);
 
-export const createContact = (req, res) => {};
+  res.status(200).json(contactById);
+};
 
-export const updateContact = (req, res) => {};
+export const deleteContact = async (req, res) => {
+  const deleteContact = await removeContact(req.params.id);
+
+  res.status(200).json(deleteContact);
+};
+
+export const createContact = (req, res) => { };
+
+export const updateContact = (req, res) => { };
