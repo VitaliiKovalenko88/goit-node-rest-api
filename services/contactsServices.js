@@ -13,7 +13,7 @@ export async function listContacts() {
 
   return contacts;
 
-}
+};
 
 export async function getContactById(contactId) {
 
