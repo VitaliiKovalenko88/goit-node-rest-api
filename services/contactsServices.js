@@ -13,7 +13,7 @@ export async function listContacts() {
 
   return contacts;
 
-}
+};
 
 export async function getContactById(contactId) {
 
@@ -41,7 +41,7 @@ export async function removeContact(contactId) {
 
 }
 
-export async function addContact(name, email, phone) {
+export async function addContact({ name, email, phone }) {
 
   const contacts = await listContacts();
   const newContact = {
@@ -51,14 +51,14 @@ export async function addContact(name, email, phone) {
     phone,
   };
 
+  log(newContact);
   contacts.push(newContact);
 
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
 
   return newContact;
-
-
 }
+
 export async function updateContactbyId(id, data) {
 
   const contacts = await listContacts();
@@ -74,9 +74,5 @@ export async function updateContactbyId(id, data) {
   await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
 
   return contacts[contactIndex];
-
-
-
-
 
 }
